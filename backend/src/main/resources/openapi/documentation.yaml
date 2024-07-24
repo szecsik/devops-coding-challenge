@@ -1,0 +1,37 @@
+openapi: "3.1.0"
+info:
+  title: "devops_coding_challenge API"
+  description: "devops_coding_challenge API"
+  version: "1.0.0"
+servers:
+- url: "https://devops_coding_challenge"
+paths:
+  /:
+    get:
+      description: ""
+      responses:
+        "200":
+          description: "OK"
+          content:
+            text/plain:
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "Hello, Ktor!"
+  /echo:
+    post:
+      description: ""
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: "string"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            text/plain:
+              schema:
+                type: "string"

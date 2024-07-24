@@ -1,0 +1,947 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-07-24T19:28:14Z"
+    generateName: coding-challenge-backend-6cf5fbb986-
+    labels:
+      app.kubernetes.io/instance: backend
+      app.kubernetes.io/name: coding-challenge
+      pod-template-hash: 6cf5fbb986
+    name: coding-challenge-backend-6cf5fbb986-gd64z
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: coding-challenge-backend-6cf5fbb986
+      uid: c98a4cb1-f39b-4685-b300-bbddcc126870
+    resourceVersion: "2393"
+    uid: df02cfe1-4a74-4d8f-bbee-cf9513ef4d68
+  spec:
+    containers:
+    - env:
+      - name: PORT
+        value: "8080"
+      - name: FRONTEND_HOST
+        value: localhost:3000
+      image: szecsikr/backend:latest
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: http
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: coding-challenge
+      ports:
+      - containerPort: 8080
+        name: http
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: http
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources: {}
+      securityContext: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-gjxh7
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-gjxh7
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T19:28:16Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T19:28:14Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T19:28:27Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T19:28:27Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T19:28:14Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://d32cb46121e89b89d3508428eb37cda80e6e3a6349de958d75fd0674665338df
+      image: szecsikr/backend:latest
+      imageID: docker-pullable://szecsikr/backend@sha256:ee62abb4bd3f36ee7f66d78ba2f970d63ce2229d6576c3e242ffad3518c27ff2
+      lastState: {}
+      name: coding-challenge
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2024-07-24T19:28:16Z"
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.6
+    podIPs:
+    - ip: 10.244.0.6
+    qosClass: BestEffort
+    startTime: "2024-07-24T19:28:14Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-07-24T18:54:40Z"
+    generateName: coding-challenge-backend-6cf5fbb986-
+    labels:
+      app.kubernetes.io/instance: backend
+      app.kubernetes.io/name: coding-challenge
+      pod-template-hash: 6cf5fbb986
+    name: coding-challenge-backend-6cf5fbb986-pcnfh
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: coding-challenge-backend-6cf5fbb986
+      uid: c98a4cb1-f39b-4685-b300-bbddcc126870
+    resourceVersion: "546"
+    uid: d4d822d9-7ccd-4ac3-ace4-226232544cab
+  spec:
+    containers:
+    - env:
+      - name: PORT
+        value: "8080"
+      - name: FRONTEND_HOST
+        value: localhost:3000
+      image: szecsikr/backend:latest
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: http
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: coding-challenge
+      ports:
+      - containerPort: 8080
+        name: http
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: http
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources: {}
+      securityContext: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-n8jvc
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-n8jvc
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T18:55:16Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T18:54:40Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T18:55:18Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T18:55:18Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T18:54:40Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://8dfc87949c224d4c054a6483e513f01516cf1ef9eb2caafd228b6d8776c01315
+      image: szecsikr/backend:latest
+      imageID: docker-pullable://szecsikr/backend@sha256:ee62abb4bd3f36ee7f66d78ba2f970d63ce2229d6576c3e242ffad3518c27ff2
+      lastState: {}
+      name: coding-challenge
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2024-07-24T18:55:16Z"
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.3
+    podIPs:
+    - ip: 10.244.0.3
+    qosClass: BestEffort
+    startTime: "2024-07-24T18:54:40Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2024-07-24T18:55:04Z"
+    generateName: coding-challenge-frontend-549b8cf97-
+    labels:
+      app.kubernetes.io/instance: frontend
+      app.kubernetes.io/name: coding-challenge-frontend
+      pod-template-hash: 549b8cf97
+    name: coding-challenge-frontend-549b8cf97-pq6tl
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: coding-challenge-frontend-549b8cf97
+      uid: 86a3c34b-3c59-4e26-af8e-532ea943ff0b
+    resourceVersion: "561"
+    uid: 2e0f532e-ba7b-4f92-a8bb-1ec844171a8f
+  spec:
+    containers:
+    - image: szecsikr/frontend:latest
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: http
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: coding-challenge-frontend
+      ports:
+      - containerPort: 80
+        name: http
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: http
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources: {}
+      securityContext: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-9rlfr
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-9rlfr
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T18:55:24Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T18:55:04Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T18:55:24Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T18:55:24Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-07-24T18:55:04Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://adec30a106b1f0dadc094f96aec12882a4198c1e37cd8f34748254ff2a3df96b
+      image: szecsikr/frontend:latest
+      imageID: docker-pullable://szecsikr/frontend@sha256:a835ee6ae35fd25a90a9f60f601faa4f10c11876bfee35658627a8d404f0c4cc
+      lastState: {}
+      name: coding-challenge-frontend
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2024-07-24T18:55:23Z"
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.4
+    podIPs:
+    - ip: 10.244.0.4
+    qosClass: BestEffort
+    startTime: "2024-07-24T18:55:04Z"
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: backend
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2024-07-24T18:54:40Z"
+    labels:
+      app.kubernetes.io/instance: backend
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: coding-challenge
+      app.kubernetes.io/version: 1.16.0
+      helm.sh/chart: coding-challenge-0.1.0
+    name: coding-challenge-backend
+    namespace: default
+    resourceVersion: "1935"
+    uid: 77b76907-6cb9-45ac-8614-ae38bade192b
+  spec:
+    clusterIP: 10.109.15.173
+    clusterIPs:
+    - 10.109.15.173
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: http
+    selector:
+      app.kubernetes.io/instance: backend
+      app.kubernetes.io/name: coding-challenge
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: frontend
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2024-07-24T18:55:04Z"
+    labels:
+      app.kubernetes.io/instance: frontend
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: coding-challenge-frontend
+      app.kubernetes.io/version: 1.16.0
+      helm.sh/chart: coding-challenge-frontend-0.1.0
+    name: coding-challenge-frontend
+    namespace: default
+    resourceVersion: "1953"
+    uid: 72bc0eaa-5ada-4fdd-ab4b-19bde9609fb3
+  spec:
+    clusterIP: 10.108.222.159
+    clusterIPs:
+    - 10.108.222.159
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 3000
+      protocol: TCP
+      targetPort: http
+    selector:
+      app.kubernetes.io/instance: frontend
+      app.kubernetes.io/name: coding-challenge-frontend
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2024-07-24T18:53:22Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "244"
+    uid: 8cf0705b-75bb-4fb5-95b9-b20b8effc846
+  spec:
+    clusterIP: 10.96.0.1
+    clusterIPs:
+    - 10.96.0.1
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: backend
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2024-07-24T18:54:40Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/instance: backend
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: coding-challenge
+      app.kubernetes.io/version: 1.16.0
+      helm.sh/chart: coding-challenge-0.1.0
+    name: coding-challenge-backend
+    namespace: default
+    resourceVersion: "2397"
+    uid: d28a51c4-f503-40fb-86bd-5b390e16bea0
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 2
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: backend
+        app.kubernetes.io/name: coding-challenge
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: backend
+          app.kubernetes.io/name: coding-challenge
+      spec:
+        containers:
+        - env:
+          - name: PORT
+            value: "8080"
+          - name: FRONTEND_HOST
+            value: localhost:3000
+          image: szecsikr/backend:latest
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: coding-challenge
+          ports:
+          - containerPort: 8080
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources: {}
+          securityContext: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: default
+        serviceAccountName: default
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 2
+    conditions:
+    - lastTransitionTime: "2024-07-24T18:54:40Z"
+      lastUpdateTime: "2024-07-24T18:55:18Z"
+      message: ReplicaSet "coding-challenge-backend-6cf5fbb986" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2024-07-24T19:28:27Z"
+      lastUpdateTime: "2024-07-24T19:28:27Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 2
+    readyReplicas: 2
+    replicas: 2
+    updatedReplicas: 2
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: frontend
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2024-07-24T18:55:04Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: frontend
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: coding-challenge-frontend
+      app.kubernetes.io/version: 1.16.0
+      helm.sh/chart: coding-challenge-frontend-0.1.0
+    name: coding-challenge-frontend
+    namespace: default
+    resourceVersion: "565"
+    uid: efbf4aef-d139-43bb-ad3c-64581be1646b
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: frontend
+        app.kubernetes.io/name: coding-challenge-frontend
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: frontend
+          app.kubernetes.io/name: coding-challenge-frontend
+      spec:
+        containers:
+        - image: szecsikr/frontend:latest
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: coding-challenge-frontend
+          ports:
+          - containerPort: 80
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources: {}
+          securityContext: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: default
+        serviceAccountName: default
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2024-07-24T18:55:24Z"
+      lastUpdateTime: "2024-07-24T18:55:24Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2024-07-24T18:55:04Z"
+      lastUpdateTime: "2024-07-24T18:55:24Z"
+      message: ReplicaSet "coding-challenge-frontend-549b8cf97" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "2"
+      deployment.kubernetes.io/max-replicas: "3"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: backend
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2024-07-24T18:54:40Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/instance: backend
+      app.kubernetes.io/name: coding-challenge
+      pod-template-hash: 6cf5fbb986
+    name: coding-challenge-backend-6cf5fbb986
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: coding-challenge-backend
+      uid: d28a51c4-f503-40fb-86bd-5b390e16bea0
+    resourceVersion: "2396"
+    uid: c98a4cb1-f39b-4685-b300-bbddcc126870
+  spec:
+    replicas: 2
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: backend
+        app.kubernetes.io/name: coding-challenge
+        pod-template-hash: 6cf5fbb986
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: backend
+          app.kubernetes.io/name: coding-challenge
+          pod-template-hash: 6cf5fbb986
+      spec:
+        containers:
+        - env:
+          - name: PORT
+            value: "8080"
+          - name: FRONTEND_HOST
+            value: localhost:3000
+          image: szecsikr/backend:latest
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: coding-challenge
+          ports:
+          - containerPort: 8080
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources: {}
+          securityContext: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: default
+        serviceAccountName: default
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 2
+    fullyLabeledReplicas: 2
+    observedGeneration: 2
+    readyReplicas: 2
+    replicas: 2
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: frontend
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2024-07-24T18:55:04Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: frontend
+      app.kubernetes.io/name: coding-challenge-frontend
+      pod-template-hash: 549b8cf97
+    name: coding-challenge-frontend-549b8cf97
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: coding-challenge-frontend
+      uid: efbf4aef-d139-43bb-ad3c-64581be1646b
+    resourceVersion: "564"
+    uid: 86a3c34b-3c59-4e26-af8e-532ea943ff0b
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: frontend
+        app.kubernetes.io/name: coding-challenge-frontend
+        pod-template-hash: 549b8cf97
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: frontend
+          app.kubernetes.io/name: coding-challenge-frontend
+          pod-template-hash: 549b8cf97
+      spec:
+        containers:
+        - image: szecsikr/frontend:latest
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: coding-challenge-frontend
+          ports:
+          - containerPort: 80
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources: {}
+          securityContext: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: default
+        serviceAccountName: default
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: autoscaling/v2
+  kind: HorizontalPodAutoscaler
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: backend
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2024-07-24T19:27:59Z"
+    labels:
+      app.kubernetes.io/instance: backend
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: coding-challenge
+      app.kubernetes.io/version: 1.16.0
+      helm.sh/chart: coding-challenge-0.1.0
+    name: coding-challenge-backend
+    namespace: default
+    resourceVersion: "2402"
+    uid: c7a43fc5-e66e-42d1-bd9c-9301391128a2
+  spec:
+    maxReplicas: 100
+    metrics:
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 80
+          type: Utilization
+      type: Resource
+    minReplicas: 2
+    scaleTargetRef:
+      apiVersion: apps/v1
+      kind: Deployment
+      name: coding-challenge-backend
+  status:
+    conditions:
+    - lastTransitionTime: "2024-07-24T19:28:14Z"
+      message: the HPA controller was able to get the target's current scale
+      reason: SucceededGetScale
+      status: "True"
+      type: AbleToScale
+    - lastTransitionTime: "2024-07-24T19:28:29Z"
+      message: 'the HPA was unable to compute the replica count: failed to get cpu
+        utilization: unable to get metrics for resource cpu: unable to fetch metrics
+        from resource metrics API: the server could not find the requested resource
+        (get pods.metrics.k8s.io)'
+      reason: FailedGetResourceMetric
+      status: "False"
+      type: ScalingActive
+    currentMetrics:
+    - type: ""
+    currentReplicas: 2
+    desiredReplicas: 2
+    lastScaleTime: "2024-07-24T19:28:14Z"
+kind: List
+metadata:
+  resourceVersion: ""

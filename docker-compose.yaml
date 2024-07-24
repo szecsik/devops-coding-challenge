@@ -1,0 +1,25 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    platform: linux/amd64
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    environment:
+      "PORT": "8080"
+      FRONTEND_HOST: "localhost:3000"
+
+  frontend:
+    build:
+      context: ./frontend
+    platform: linux/amd64
+    ports:
+      - "3000:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
