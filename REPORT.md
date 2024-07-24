@@ -43,3 +43,4 @@
    - What is your process for setting up monitoring alerts in Kubernetes?
      I would use the Prometheus Alert Manager. Most of the services has endpoints with Prometheus metrics. With these ones you can easily create alerts and integrate it to MS Teams or Pagerduty etc.
    - How do you ensure high availability and fault tolerance in your monitoring setup?
+     I would make sure proper autoscaling is setup on these monitoring tools. If some components are in different cluster (e.g. Logstash), i would make sure i have worker nodes sorted out in different data centers (in a cloud environment). I would use tools which offer high availability capabilities, like Prometheus Alertmanager. Or any other tool where we can run multiple instance and the persistence layer gets replicated.
